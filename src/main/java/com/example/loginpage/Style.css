@@ -1,0 +1,11 @@
+.usernameTextField{
+-fx-background-color:transparenet;
+-fx-text-inner-color:#1e0202e8;
+-fx-border-color:#f60a0a;
+-fx-border-width:0px 0px 4px 0px;
+}
+
+.usernameTextField{
+    -fx-border-color: #fb6363;
+    -fx-border-width: 0px 0px 1px 0px;
+}

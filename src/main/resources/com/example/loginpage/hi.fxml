@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="545.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginpage.RegisterController">
+   <children>
+      <AnchorPane prefHeight="81.0" prefWidth="601.0" style="-fx-background-color: #E96151;">
+         <children>
+            <ImageView fx:id="sheildImageView" fitHeight="61.0" fitWidth="50.0" layoutX="48.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Edit.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="122.0" layoutY="41.0" text="User Registration">
+               <textFill>
+                  <RadialGradient centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006711409395973154">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="121.0" layoutY="109.0" prefHeight="19.0" prefWidth="362.0" text="Firstname">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="firstNameTextField" layoutX="121.0" layoutY="137.0" prefHeight="25.0" prefWidth="362.0" promptText="Firstname" />
+      <TextField fx:id="lastNameTextField" layoutX="121.0" layoutY="200.0" prefHeight="25.0" prefWidth="362.0" promptText="Lastname" />
+      <Label layoutX="121.0" layoutY="173.0" prefHeight="19.0" prefWidth="362.0" text="Lastname">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="usernameTextField" layoutX="121.0" layoutY="269.0" prefHeight="25.0" prefWidth="362.0" promptText="Username" />
+      <Label layoutX="121.0" layoutY="239.0" prefHeight="19.0" prefWidth="362.0" text="Username">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="setPasswordField" layoutX="121.0" layoutY="331.0" prefHeight="25.0" prefWidth="362.0" promptText="Password" />
+      <PasswordField fx:id="confirmPasswordField" layoutX="121.0" layoutY="398.0" prefHeight="25.0" prefWidth="362.0" promptText="Confirm" />
+      <Label layoutX="121.0" layoutY="304.0" prefHeight="19.0" prefWidth="362.0" text="Password">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="121.0" layoutY="367.0" prefHeight="19.0" prefWidth="362.0" text="Confirm Password">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="registerButton" layoutX="121.0" layoutY="446.0" mnemonicParsing="false" onAction="#registrationActionButton" prefHeight="25.0" prefWidth="362.0" style="-fx-background-color: #E96151;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="closeButton" layoutX="121.0" layoutY="485.0" mnemonicParsing="false" onAction="#CloseButtonOnAction" prefHeight="25.0" prefWidth="362.0" style="-fx-background-color: #E96151;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="registrationMassegeLabel" alignment="CENTER" layoutX="2.0" layoutY="92.0" prefHeight="17.0" prefWidth="593.0" style="-fx-text-fill: green;" />
+      <Label fx:id="confirmPasswordLabel" alignment="CENTER" layoutX="40.0" layoutY="368.0" prefHeight="17.0" prefWidth="593.0" style="-fx-text-fill: red;" />
+   </children>
+</AnchorPane>
