@@ -1,5 +1,6 @@
 package com.example.loginpage;
 
+import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -7,10 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
@@ -21,6 +19,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -44,6 +43,8 @@ public class loginController implements Initializable {
     private PasswordField passwordTextField;
     @FXML
     private Button registerButton;
+    @FXML
+    Alert alert;
  /*   @FXML
     private Rectangle background;
     private int currentImageIndex = 0;
@@ -117,9 +118,40 @@ public class loginController implements Initializable {
         if(usernameTextField.getText().isBlank()==false && passwordTextField.getText().isBlank()==false){
             validateLogin();
         }else{
-            loginmassegeLabel.setText("Please enter username and password");
+
+            if(usernameTextField.getText().isBlank()==true){
+                loginmassegeLabel.setTextFill(Color.RED);
+                loginmassegeLabel.setText("");
+
+
+                // Create and show an alert pop-up
+                alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Input Error");
+                alert.setHeaderText("Missing Information");
+                alert.setContentText("Phone number cannot be blank!!");
+
+                alertEffect();
+
+            }
+
+            else if(passwordTextField.getText().isBlank()==true){
+                loginmassegeLabel.setTextFill(Color.RED);
+                loginmassegeLabel.setText("");
+
+
+                // Create and show an alert pop-up
+                alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Input Error");
+                alert.setHeaderText("Missing Information");
+                alert.setContentText("Please enter your password!!");
+
+                alertEffect();
+
+            }
         }
     }
+
+    //cancel button on action
     public void cancelButtonOnAction(ActionEvent event){
 
         Stage stage = (Stage) cancelButton.getScene().getWindow();
@@ -131,7 +163,7 @@ public class loginController implements Initializable {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String verifyLogin = "SELECT count(1) FROM new_table WHERE username = ? AND password = ?";
+        String verifyLogin = "SELECT count(1) FROM new_table WHERE phonenumber = ? AND password = ?";
         try{
             PreparedStatement preparedStatement = connectDB.prepareStatement(verifyLogin);
             preparedStatement.setString(1, usernameTextField.getText().trim());
@@ -161,8 +193,12 @@ public class loginController implements Initializable {
     public  void clickRegisterButton(ActionEvent event){
         try{
             Stage registerStage = new Stage();
+
             FXMLLoader loader = new FXMLLoader(registerApplication.class.getResource("register.fxml"));
             Scene scene = new Scene(loader.load());
+            //adding image icon
+            Image realstate = new Image(new FileInputStream("C:\\Users\\USER\\OneDrive\\Desktop\\3RD SEMISTER\\JAVA\\LoginPage\\src\\main\\resources\\realstateicon.png"));
+            registerStage.getIcons().add(realstate);
             registerStage.setScene(scene);
             registerStage.show();
             Stage stage = (Stage) registerButton.getScene().getWindow();
@@ -173,6 +209,24 @@ public class loginController implements Initializable {
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void alertEffect(){
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("Alert.css").toExternalForm());
+        alert.getDialogPane().getStyleClass().add("alert");
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+
+        // Add a fade-in transition
+        FadeTransition fadeIn = new FadeTransition(Duration.millis(1000), stage.getScene().getRoot());
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.setCycleCount(1);
+        fadeIn.play();
+
+        // Show the Alert
+        alert.showAndWait();
+
+
     }
 
 

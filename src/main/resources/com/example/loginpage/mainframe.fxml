@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="ancorepane2" prefHeight="534.0" prefWidth="668.0" styleClass="ancorepane2" stylesheets="@ancorepane.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginpage.MainFrameController">
+   <children>
+      <AnchorPane fx:id="movableAnchorPane" layoutY="2.0" onMouseDragged="#handleMouseDragged" onMouseMoved="#handleMousePressed" prefHeight="534.0" prefWidth="320.0" style="olor: #e38f09;" styleClass="ancorepane" stylesheets="@ancorepane.css">
+         <children>
+            <ImageView fitHeight="508.0" fitWidth="277.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="ancorepane1" layoutX="354.0" layoutY="2.0" prefHeight="534.0" prefWidth="320.0" style="olor: #e38f09;" styleClass="ancorepane1" stylesheets="@ancorepane.css" />
+   </children>
+</AnchorPane>

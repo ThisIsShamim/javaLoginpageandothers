@@ -18,6 +18,7 @@ import javafx.util.Duration;
 
 import javax.xml.stream.FactoryConfigurationError;
 import java.io.File;
+import java.io.FileInputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -103,6 +104,45 @@ public class RegisterController implements Initializable {
             }
         });
 
+        setPasswordField.textProperty().addListener((observable, oldValue, newValue) -> {
+            // Check if the TextField contains text
+            if (newValue.isEmpty()) {
+                // Remove the CSS class when the text field is empty
+                setPasswordField.getStyleClass().remove("has-text");
+            } else {
+                // Add the CSS class when there is text in the text field
+                if (!setPasswordField.getStyleClass().contains("has-text")) {
+                    setPasswordField.getStyleClass().add("has-text");
+                }
+            }
+        });
+
+        shownPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            // Check if the TextField contains text
+            if (newValue.isEmpty()) {
+                // Remove the CSS class when the text field is empty
+                shownPassword.getStyleClass().remove("has-text");
+            } else {
+                // Add the CSS class when there is text in the text field
+                if (!shownPassword.getStyleClass().contains("has-text")) {
+                    shownPassword.getStyleClass().add("has-text");
+                }
+            }
+        });
+
+        confirmPasswordField.textProperty().addListener((observable, oldValue, newValue) -> {
+            // Check if the TextField contains text
+            if (newValue.isEmpty()) {
+                // Remove the CSS class when the text field is empty
+                confirmPasswordField.getStyleClass().remove("has-text");
+            } else {
+                // Add the CSS class when there is text in the text field
+                if (!confirmPasswordField.getStyleClass().contains("has-text")) {
+                    confirmPasswordField.getStyleClass().add("has-text");
+                }
+            }
+        });
+
 
 
     }
@@ -111,7 +151,9 @@ public class RegisterController implements Initializable {
     public void BackButtonOnAction(ActionEvent event) throws Exception{
         Stage stage = (Stage) backButton.getScene().getWindow();
         stage.close();
-
+        //setting up image icon from here if we use in controller then it will be vanish after some click
+        Image realstate = new Image(new FileInputStream("C:\\Users\\USER\\OneDrive\\Desktop\\3RD SEMISTER\\JAVA\\LoginPage\\src\\main\\resources\\realstateicon.png"));
+        stage.getIcons().add(realstate);
         FXMLLoader fxmlLoader = new FXMLLoader(loginApplication.class.getResource("login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
@@ -121,12 +163,12 @@ public class RegisterController implements Initializable {
     //password doesn't match action button
     public void registrationActionButton(ActionEvent event) {
 
-
         if (setPasswordField.getText().equals(confirmPasswordField.getText())) {
             confirmPasswordLabel.setText("");
             registeredUser();
         } else{
             confirmPasswordLabel.setText("Password doesn't match!");
+            confirmPasswordLabel.setTextFill(Color.web("#fa0025"));
         }
         if(firstNameTextField.getText().isBlank()==true){
             registrationMassegeLabel.setTextFill(Color.RED);
@@ -187,7 +229,7 @@ public class RegisterController implements Initializable {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String insertQuery = "INSERT INTO new_table (firstname, lastname, username, password) VALUES (?, ?, ?, ?)";
+        String insertQuery = "INSERT INTO new_table (firstname, lastname, phonenumber, password) VALUES (?, ?, ?, ?)";
 
         try {
             PreparedStatement preparedStatement = connectDB.prepareStatement(insertQuery);

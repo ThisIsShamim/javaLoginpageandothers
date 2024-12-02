@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,46 +16,46 @@
             <Image url="@../../../loginicon.gif" />
          </image>
       </ImageView>
-      <Label layoutX="199.0" layoutY="113.0" text="Username">
+      <Label layoutX="199.0" layoutY="113.0" text="Phone">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="usernameTextField" layoutX="194.0" layoutY="138.0" prefHeight="25.0" prefWidth="249.0" promptText="Username" styleClass="usernameTextField" stylesheets="@Style.css" />
+      <TextField fx:id="usernameTextField" layoutX="194.0" layoutY="138.0" prefHeight="25.0" prefWidth="249.0" promptText="Phone number" styleClass="usernameTextField" stylesheets="@Style.css" />
       <Label layoutX="198.0" layoutY="187.0" text="Password">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <PasswordField fx:id="passwordTextField" layoutX="194.0" layoutY="213.0" prefHeight="25.0" prefWidth="249.0" promptText="Password" styleClass="usernameTextField" stylesheets="@Style.css" />
-      <Button fx:id="loginButton" layoutX="194.0" layoutY="280.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="25.0" prefWidth="249.0" style="-fx-background-color: black;" styleClass="loginButton" stylesheets="@cssforbutton.css" text="Login" textFill="#fffefe">
+      <Button fx:id="loginButton" layoutX="194.0" layoutY="295.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="25.0" prefWidth="249.0" style="-fx-background-color: black;" styleClass="loginButton" stylesheets="@cssforbutton.css" text="Login" textFill="#fffefe">
          <font>
             <Font name="Berlin Sans FB" size="12.0" />
          </font>
-      </Button>
-      <Button fx:id="cancelButton" layoutX="194.0" layoutY="317.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="25.0" prefWidth="249.0" style="-fx-background-color: black;" styleClass="Cancel" stylesheets="@cssforbutton.css" text="Cancel" textFill="WHITE">
-         <font>
-            <Font name="Berlin Sans FB" size="12.0" />
-         </font>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <effect>
-            <Glow level="0.0" />
-         </effect>
       </Button>
       <Label fx:id="loginmassegeLabel" alignment="CENTER" layoutX="194.0" layoutY="256.0" prefHeight="17.0" prefWidth="249.0" textFill="#d01313" />
-      <Label layoutX="283.0" layoutY="353.0" text="Didn't register yet?" />
-      <Button fx:id="registerButton" layoutX="382.0" layoutY="349.0" mnemonicParsing="false" onAction="#clickRegisterButton" style="-fx-background-color: transparent;" text="Register" textFill="#3314d9" underline="true" />
-      <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="414.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="269.0" layoutY="352.0" text="Didn't register yet?">
+         <font>
+            <Font name="Cambria Math" size="14.0" />
+         </font></Label>
+      <Button fx:id="registerButton" layoutX="382.0" layoutY="346.0" mnemonicParsing="false" onAction="#clickRegisterButton" style="-fx-background-color: transparent;" text="Register" textFill="#3314d9" underline="true">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="414.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../login.gif" />
+            <Image url="@../../../contact.gif" />
          </image>
       </ImageView>
       <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="414.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../password.gif" />
+            <Image url="@../../../password%20(1).gif" />
          </image>
       </ImageView>
+      <Button fx:id="forgrtPasswordButton" layoutX="318.0" layoutY="269.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" style="-fx-background-color: transparent;" text="Forgot Password?" textFill="#3314d9" underline="true">
+         <font>
+            <Font name="Cambria Math" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
